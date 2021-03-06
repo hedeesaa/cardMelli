@@ -1,0 +1,43 @@
+basePath: /validation/
+definitions:
+  ncode.NationalCode:
+    properties:
+      city:
+        type: string
+      id:
+        type: string
+      isValid:
+        type: boolean
+    type: object
+host: 127.0.0.1:8080
+info:
+  contact:
+    email: moghimi.saeedeh@gmail.com
+    name: Saeede Moghimi
+    url: saeedehmoghimi.com
+  description: This API validates Iran's NationalCode
+  title: NationalCode
+  version: "0.1"
+paths:
+  /:
+    get:
+      consumes:
+      - application/json
+      description: get NationalCode by id
+      parameters:
+      - description: NationalCode ID
+        in: query
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/ncode.NationalCode'
+      summary: Validates Iranian's NationalCode
+      tags:
+      - NationalCode
+swagger: "2.0"
