@@ -1,0 +1,65 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This API validates Iran's NationalCode",
+        "title": "NationalCode",
+        "contact": {
+            "name": "Saeede Moghimi",
+            "url": "saeedehmoghimi.com",
+            "email": "moghimi.saeedeh@gmail.com"
+        },
+        "version": "0.1"
+    },
+    "host": "127.0.0.1:8080",
+    "basePath": "/validation/",
+    "paths": {
+        "/": {
+            "get": {
+                "description": "get NationalCode by id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "NationalCode"
+                ],
+                "summary": "Validates Iranian's NationalCode",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "NationalCode ID",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ncode.NationalCode"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ncode.NationalCode": {
+            "type": "object",
+            "properties": {
+                "city": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "isValid": {
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}
